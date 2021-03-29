@@ -1,6 +1,7 @@
-import React from 'react'
-import styles from './styles.module.css'
+import Layout from './Views/Layout'
+import Preloading from './Views/Preloading'
+import Auth from './Views/Auth'
 
-export const ExampleComponent = ({ text }) => {
-  return <div className={styles.test}>Example Component: {text}</div>
+export {
+  Layout, Preloading, Auth
 }

@@ -1,0 +1,80 @@
+[
+  {
+    "parent":{
+      "description":"Dashboard"
+    },
+    "childrens":[
+      {
+        "parent":{
+          "description":"Dashboard",
+          "icon":"far fa-lightbulb"
+        },
+        "childrens":[
+          {
+            "description":"Dashboard",
+            "a_href":"dashboard",
+            "show":"1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "parent":{
+      "description":"Tables"
+    },
+    "childrens":[
+      {
+        "parent":{
+          "description":"Advanced",
+          "icon":"fas fa-network-wired"
+        },
+        "childrens":[
+          {
+            "description":"DataTable",
+            "a_href":"datatable",
+            "show":"1"
+          }
+        ]
+      },
+      {
+        "parent":{
+          "description":"Simple",
+          "icon":"fas fa-network-wired"
+        },
+        "childrens":[
+          {
+            "description":"Simple",
+            "a_href":"simple",
+            "show":"1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "parent":{
+      "description":"Form"
+    },
+    "childrens":[
+      {
+        "parent":{
+          "description":"Form",
+          "icon":"fas fa-boxes"
+        },
+        "childrens":[
+          {
+            "description":"Form Control",
+            "a_href":"form",
+            "show":"1"
+          },
+          {
+            "description":"Form Advanced",
+            "a_href":"form-advanced",
+            "show":"1"
+          }
+        ]
+      }
+    ]
+  }
+]
