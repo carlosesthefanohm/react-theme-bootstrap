@@ -76,5 +76,80 @@
         ]
       }
     ]
+  },
+  {
+    "parent":{
+      "description":"Form"
+    },
+    "childrens":[
+      {
+        "parent":{
+          "description":"Form",
+          "icon":"fas fa-boxes"
+        },
+        "childrens":[
+          {
+            "description":"Form Control",
+            "a_href":"form",
+            "show":"1"
+          },
+          {
+            "description":"Form Advanced",
+            "a_href":"form-advanced",
+            "show":"1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "parent":{
+      "description":"Form"
+    },
+    "childrens":[
+      {
+        "parent":{
+          "description":"Form",
+          "icon":"fas fa-boxes"
+        },
+        "childrens":[
+          {
+            "description":"Form Control",
+            "a_href":"form",
+            "show":"1"
+          },
+          {
+            "description":"Form Advanced",
+            "a_href":"form-advanced",
+            "show":"1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "parent":{
+      "description":"Form"
+    },
+    "childrens":[
+      {
+        "parent":{
+          "description":"Form",
+          "icon":"fas fa-boxes"
+        },
+        "childrens":[
+          {
+            "description":"Form Control",
+            "a_href":"form",
+            "show":"1"
+          },
+          {
+            "description":"Form Advanced",
+            "a_href":"form-advanced",
+            "show":"1"
+          }
+        ]
+      }
+    ]
   }
 ]

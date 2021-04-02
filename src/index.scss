@@ -126,7 +126,6 @@ $hdLoginBg: #f3f3f3 !default;
             &::-webkit-scrollbar-track {
                 background: #fff;
                 position: fixed;
-                margin-top: $hdHeight;
             }
 
             &::-webkit-scrollbar {
@@ -135,7 +134,6 @@ $hdLoginBg: #f3f3f3 !default;
 
             &::-webkit-scrollbar-thumb {
                 background: #a3a3a3;
-                border-radius: 6px;
             }
 
             .nav-title {
@@ -406,6 +404,21 @@ $hdLoginBg: #f3f3f3 !default;
             margin-top: 60px;
             position: absolute;
             height: 100vh;
+            overflow: auto;
+
+            &::-webkit-scrollbar-track {
+                background: #fff;
+                position: fixed;
+                border-radius: 6px;
+            }
+
+            &::-webkit-scrollbar {
+                width: 0.3rem;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background: #a3a3a3;
+            }
 
             .page-wrapper-top {
                 background: $hdPageWrapperBg;
@@ -545,6 +558,8 @@ $hdLoginBg: #f3f3f3 !default;
 
     .card-header:first-child {
         border-radius: $hdCardBorderRadius;
+        border-bottom-right-radius: 0px !important;
+        border-bottom-left-radius: 0px !important;
     }
 
     .card-header {
@@ -567,5 +582,22 @@ $hdLoginBg: #f3f3f3 !default;
     .input-group-sm > .input-group-prepend > .btn,
     .input-group-sm > .input-group-append > .btn {
         border-radius: 4px !important;
+    }
+
+    .btn-sm.btn-circle {
+        width: 25px;
+        height: 25px;
+        padding: 0px 0px;
+        border-radius: 15px;
+        text-align: center;
+        font-size: 12px;
+        line-height: 1.42857;
+    }
+    .btn-group-xs > .btn,
+    .btn-xs {
+        padding: 0.2rem 0.3rem;
+        font-size: 0.75rem;
+        line-height: 0.5;
+        border-radius: 0.2rem;
     }
 /* } */

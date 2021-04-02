@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useMemo, useCallback, Fragment, forwardRef } from 'react'
 import '../index.scss'
 
-const renderIconHtml = ({ type, content, noHover, style, styleImage }) => {
-    return <div className={'hd-icon' + (noHover ? ' hd-icon-no-hover' : '')} style={style}>
+const renderIconHtml = ({ type, content, noHover, style, styleImage, hideOnMobile }) => {
+    return <div className={'hd-icon' + (noHover ? ' hd-icon-no-hover' : '') + (hideOnMobile ? ' d-none d-md-flex' : '')} style={style}>
         {type === 'icon' ? <i className={content}></i> : (
             type === 'image' ? <img src={content} className="hd-icon-image" style={styleImage} /> : (
                 type === 'html' ? content : ''
@@ -11,7 +11,7 @@ const renderIconHtml = ({ type, content, noHover, style, styleImage }) => {
     </div>
 }
 
-const CustomDropdown = ({ type, content, style, styleImage, noHover }) => {
+const CustomDropdown = ({ type, content, style, styleImage, noHover, hideOnMobile }) => {
     return forwardRef(({ children, onClick }, ref) => (
         <div ref={ref} onClick={(e) => {
             e.preventDefault()
@@ -19,14 +19,14 @@ const CustomDropdown = ({ type, content, style, styleImage, noHover }) => {
         }}
         >
             {renderIconHtml({
-                type, content, style, styleImage, noHover
+                type, content, style, styleImage, noHover, hideOnMobile
             })}
             {children}
         </div>
     ))
 }
 
-const Layout = ({ page, children, title, showBread, permissions, companyName, brand, openNavDesktop, iconsRight, iconsLeft }) => {
+const Layout = ({ page, children, title, showBread, permissions, companyName, brand, openNavDesktop, iconsRight, iconsLeft, Link, linkTo, linkToBrand }) => {
     const [resize, setResize] = useState(!openNavDesktop)
     const [resizeOpen, setResizeOpen] = useState(false)
     const [mobile, setMobile] = useState(false)
@@ -66,14 +66,14 @@ const Layout = ({ page, children, title, showBread, permissions, companyName, br
                     }
 
                     if (parseInt(ch.show) === 1) {
-                        childs.push(<a href="" className="nav-second-level-link">
+                        childs.push(<Link to={linkTo({ url: ch.a_href })} className="nav-second-level-link">
                             <li className={'nav-second-level-item' + (ch.a_href === page ? ' active' : '')}>
                                 <div className="nav-second-level-title">
                                     <span className="nav-second-level-icon"></span>
                                     <div className="nav-second-level-description">{ch.description}</div>
                                 </div>
                             </li>
-                        </a>)
+                        </Link>)
                     }
                 })
 
@@ -143,7 +143,7 @@ const Layout = ({ page, children, title, showBread, permissions, companyName, br
     }, [mobile])
 
     const renderIcon = icons => {
-        return icons.map(({ type, content, dropdown, style = {}, styleImage = {}, noHover = false }) => {
+        return icons.map(({ type, content, dropdown, style = {}, styleImage = {}, noHover = false, hideOnMobile = false }) => {
             if (dropdown) {
                 return dropdown({
                     custom: CustomDropdown({ type: type, content: content, style, styleImage, noHover })
@@ -151,7 +151,7 @@ const Layout = ({ page, children, title, showBread, permissions, companyName, br
             }
 
             return renderIconHtml({
-                type, content, style, styleImage, noHover
+                type, content, style, styleImage, noHover, hideOnMobile
             })
         })
     }
@@ -160,7 +160,9 @@ const Layout = ({ page, children, title, showBread, permissions, companyName, br
         <div className="d-flex hd-content-logo hd-height">
             <div className="d-flex justify-content-center align-self-center w-100 hd-height">
                 <div className="align-self-center">
-                    <img src={brand} className="hd-content-logo-image" />
+                    <Link to={linkToBrand}>
+                        <img src={brand} className="hd-content-logo-image" />
+                    </Link>
                 </div>
             </div>
         </div>
@@ -227,7 +229,10 @@ Layout.defaultProps = {
     title: '',
     openNavDesktop: true,
     iconsRight: [],
-    iconsLeft: []
+    iconsLeft: [],
+    Link: _ => {},
+    linkTo: _ => {},
+    linkToBrand: ''
 }
 
 export default Layout

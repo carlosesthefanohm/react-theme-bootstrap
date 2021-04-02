@@ -15,6 +15,7 @@
     "react": "file:../node_modules/react",
     "react-bootstrap": "^1.5.2",
     "react-dom": "file:../node_modules/react-dom",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "file:../node_modules/react-scripts",
     "react-theme-bootstrap": "file:.."
   },
