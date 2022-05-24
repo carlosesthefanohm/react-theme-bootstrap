@@ -33,7 +33,8 @@
           {
             "description":"DataTable",
             "a_href":"datatable",
-            "show":"1"
+            "show":"1",
+            "icon": "far fa-lightbulb"
           }
         ]
       },

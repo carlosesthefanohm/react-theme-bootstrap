@@ -2,6 +2,8 @@ import './index.css'
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
+import AppThuleStore from './AppThuleStore'
+import AppSmartSupply from './AppSmartSupply'
+import AppTheme from './AppTheme'
 
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(<AppTheme />, document.getElementById('root'))

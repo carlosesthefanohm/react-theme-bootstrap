@@ -27,7 +27,7 @@ const App = () => {
     page="datatable"
     title="Productos"
     companyName="Compañía"
-    brand="https://lebiom.net/assets/images/dashboard/logo.png"
+    brand="https://developerperu.com/public/images/logo/logo_blanco.svg"
     openNavDesktop
     permissions={permissions}
     iconsRight={[
@@ -41,7 +41,7 @@ const App = () => {
       },
       {
         type: 'image',
-        content: 'https://dashboardbot.tecnicom.pe/assets/images/dashboard/not-profile-picture.png',
+        content: 'https://developerperu.com/public/images/icons/not-profile-picture.png',
         dropdown: ({ custom }) => <Dropdown>
           <Dropdown.Toggle as={custom} />
           <Dropdown.Menu>
