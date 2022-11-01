@@ -1,13 +1,11 @@
 import React from 'react'
 import { Layout, Preloading, AuthV3 } from 'react-theme-bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'react-theme-bootstrap/dist/index.css'
 import Dropdown from 'react-bootstrap/Dropdown'
 import permissions from './Resources/Permissions.json'
 import preloading from './Resources/preloading.svg'
-import { BrowserRouter, Switch, Route, Redirect, Link } from 'react-router-dom'
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 
-const AppSmartSupply = () => {
+export const AppSmartSupply = () => {
   return <BrowserRouter>
     <Switch>
       <Route path={'/'} exact>
@@ -18,7 +16,7 @@ const AppSmartSupply = () => {
           title="Productos"
           titleTop="Productos"
           companyName="Compañía"
-          brand="https://developerperu.com/public/images/logo/logo_blanco.svg"
+          brand="https://developerperu.com/public/images/logo/logo.svg"
           openNavDesktop
           permissions={permissions}
           iconsRight={[
@@ -113,7 +111,7 @@ const AppSmartSupply = () => {
             {
               type: 'html', content: <div className="d-flex">
                 <div className="mr-3">
-                  <img src="https://developerperu.com/public/images/icons/not-profile-picture.png" className="img-fluid" style={{
+                  <img src="https://developerperu.com/public/images/icons/not-profile-picture.png" className="img-fluid" alt="" style={{
                     borderRadius: 50,
                     width: 40,
                     height: 40
@@ -219,14 +217,12 @@ const AppSmartSupply = () => {
   </BrowserRouter >
 }
 
-/* const AppSmartSupply = () => {
+export const AppSmartSupplyLoading = () => {
   return <Preloading image={preloading} />
-} */
+}
 
-/* const AppSmartSupply = () => {
+export const AppSmartSupplyAuth = () => {
   return <AuthV3
-    brand={'https://developerperu.com/public/images/logo/logo_blanco.svg'}
+    brand={'https://developerperu.com/public/images/logo/logo.svg'}
   />
-} */
-
-export default AppSmartSupply
+}

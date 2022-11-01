@@ -1,14 +1,10 @@
 import React from 'react'
-import { Layout, Preloading, AuthV2, NotFound } from 'react-theme-bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'react-theme-bootstrap/dist/index.css'
+import { Layout, AuthV2 } from 'react-theme-bootstrap'
 import Dropdown from 'react-bootstrap/Dropdown'
-import Button from 'react-bootstrap/Button'
 import permissions from './Resources/Permissions.json'
-import preloading from './Resources/preloading.svg'
-import { BrowserRouter, Switch, Route, Redirect, Link } from 'react-router-dom'
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 
-const AppThuleStore = () => {
+export const AppThuleStore = () => {
   return <BrowserRouter>
     <Switch>
       <Route path={'/'} exact>
@@ -16,7 +12,7 @@ const AppThuleStore = () => {
           page="datatable"
           title="Productos"
           companyName="Compañía"
-          brand="https://developerperu.com/public/images/logo/logo_blanco.svg"
+          brand="https://developerperu.com/public/images/logo/logo.svg"
           permissions={permissions}
           showBread
           iconsRight={[
@@ -56,7 +52,7 @@ const AppThuleStore = () => {
           desktopExpand={false}
           contentBeforeNavigation={<>
               <div className="d-flex flex-column align-items-center">
-                  <img src="https://developerperu.com/public/images/logo/logo_blanco.svg" alt="Logo" style={{
+                  <img src="https://developerperu.com/public/images/logo/logo.svg" alt="Logo" style={{
                       maxWidth: 150
                   }} />
                   <div className="d-flex mt-3">
@@ -111,18 +107,9 @@ const AppThuleStore = () => {
   </BrowserRouter>
 }
 
-export default AppThuleStore
-
-/* const AppThuleStore = () => {
-  return <Preloading image={preloading} />
-} */
-
-/* const AppThuleStore = () => {
+export const AppThuleStoreAuth = () => {
   return <AuthV2
     brand="https://developerperu.com/public/images/logo/logo.svg"
-    brandTop="https://developerperu.com/public/images/logo/logo_blanco.svg"
+    brandTop="https://developerperu.com/public/images/logo/logo.svg"
   />
 }
-
-export default AppThuleStore */
-

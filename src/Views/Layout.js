@@ -45,7 +45,7 @@ const Layout = ({ page, children, title, titleTop, showBread, permissions, compa
         permissions.forEach(d => {
             if (showLevelOne) {
                 nav.push(<div className="nav-title">
-                    <i className="fas fa-ellipsis-h"></i>
+                    {/* <i className="fas fa-ellipsis-h"></i> */}
                     <span>{d.parent.description}</span>
                 </div>)
             }
@@ -186,7 +186,7 @@ const Layout = ({ page, children, title, titleTop, showBread, permissions, compa
                     setMobile(!mobile)
                 }
             }}>
-                {!resize ? <i className="fa fa-bars hd-icon-bar-close"></i> : <i className="far fa-hand-point-right hd-icon-bar-close"></i>}
+                {<i className="fa fa-bars hd-icon-bar-close"></i> }
             </div> : ''}
             {React.Children.toArray(renderIcon(iconsLeft))}
         </div>

@@ -27,6 +27,7 @@ $hdBodyColor: #626262 !default;
 $hdModalBg: #313948 !default;
 $hdIconImagenWidth: 30px !default;
 $hdLoginMaxWidth: 500px !default;
+$hdLoginLogoMinWidth: 0px !default;
 $hdLoginBg: #F2F2F2 !default;
 $hdLogoBg: $hdGradient !default;
 $hdSidebarBg: #6f99c3 !default;
@@ -52,65 +53,9 @@ $hdIconBarBg: rgba(0, 0, 0, 0.1) !default;
 $hdNavSecondLevelPadding: 0 !default;
 $hdNavSecondLevelItemPadding: 10px !default;
 $hdBackgoundAuth: none !default;
-
-// Thule Store
-/* $hdGradient: #f26122;
-$hdSidebarBg: $hdGradient;
-$hdNavBg: #111111;
-$hdNavSecondLevelBg: #111111;
-$hdNavSecondlLevelColor: #fff;
-$hdWidthFull: 220px;
-$hdColumns: $hdWidthFull 1fr 1fr;
-$hdLogoBg: #111111;
-$hdHeaderLogoBorder: #111111;
-$hdBodyBgLight: #e5e5e5;
-$hdPageWrapperBg: #e5e5e5;
-$hdPageWrapperColor: #333333;
-$hdPageWrapperBodyPosition: static;
-$hdPageWrapperHeight: auto;
-$hdNavOneLevelBg: #111111;
-$hdNavOneLevelBgActive: #e5e5e5;
-$hdLoginBg: #4c4c4c;
-$hdLoginMaxWidth: 400px;
-$hdLoginContentPadding: 50px 30px;
-$hdLoginContentBorderRadius: 30px;
-$hdSidebarBgMovil: $hdGradient;
-$hdLogoBgMovil: $hdGradient;
-$hdNavSecondLevelBgActive: $hdGradient; */
-
-// Smart Supply
-/* $hdNavBg: #D94A23;
-$hdNavSecondLevelBg: #D94A23;
-$hdNavSecondlLevelColor: #F2F2F2;
-$hdNavSecondlLevelColorActive: #000;
-$hdNavSecondLevelBgActive: #F2F2F2;
-$hdLogoBg: #D94A23;
-$hdNavLeftPadding: 0px;
-$hdNavOneLevelPadding: 0px;
-$hdNavSecondLevelHeight: 45px;
-$hdNavSecondLevelRadiusTopLeft: 45px;
-$hdNavSecondLevelRadiusBottomLeft: 45px;
-$hdPageWrapperColor: #000;
-$hdPageWrapperColor: #000;
-$hdPageWrapperBg: #F2F2F2;
-$hdSidebarBg: #F2F2F2;
-$hdBoxShadow: 0px 12px 23px rgba(0, 0, 0, 0.1);
-$hdCardBorderRadius: 20px;
-$hdSidebarBgMovil: #D94A23;
-$hdLogoBgMovil: #D94A23;
-$hdWidthFull: 260px;
-$hdLogoBgMovil: #D94A23;
-$hdColumns: $hdWidthFull 1fr 1fr 1fr;
-$hdIconCenterDisplay: flex;
-$hdHeaderLogoBorder: #D94A23;
-$hdBoxShadowNav: none;
-$hdIconBarOpen: #343a40;
-$hdIconBarClose: #343a40;
-$hdIconBarBg: #F2F2F2;
-$hdNavSecondLevelPadding: 0 0 0 20px;
-$hdNavSecondLevelItemPadding: 0 0 0 20px;
-$hdLoginMaxWidth: 600px; */
-
+$hdSidebarBgRightIcon: $hdGradient !default;
+$hdSidebarBgLeftIcon: $hdGradient !default;
+$headDashBg: none !default;
 
 .cur-pointer {
   cursor: pointer;
@@ -130,6 +75,7 @@ $hdLoginMaxWidth: 600px; */
     transition: 0.5s;
     display: grid;
     grid-template-columns: $hdColumns;
+    background: $headDashBg;
 
     .hd-height {
       height: $hdHeight;
@@ -189,7 +135,7 @@ $hdLoginMaxWidth: 600px; */
       &.hd-icon-right {
         display: flex;
         justify-content: flex-end;
-        background: $hdSidebarBg;
+        background: $hdSidebarBgRightIcon;
 
         @media (max-width: 991px) {
           background: $hdSidebarBgMovil;
@@ -197,7 +143,7 @@ $hdLoginMaxWidth: 600px; */
       }
 
       &.hd-icon-left {
-        background: $hdSidebarBg;
+        background: $hdSidebarBgLeftIcon;
         display: flex;
         justify-content: flex-start;
 
@@ -762,13 +708,13 @@ $hdLoginMaxWidth: 600px; */
   }
 
   .head-dash-login {
+    background: $hdLoginBg;
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background: $hdLoginBg;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -802,7 +748,7 @@ $hdLoginMaxWidth: 600px; */
     }
 
     .head-dash-login-box {
-      max-width: #{$hdLoginMaxWidth};
+      max-width: #{$hdLoginMaxWidth};      
       padding-left: 10px;
       padding-right: 10px;
 
@@ -816,6 +762,7 @@ $hdLoginMaxWidth: 600px; */
 
         .head-dash-login-logo {
           max-width: 130px;
+          min-width: #{$hdLoginLogoMinWidth};
         }
       }
     }
@@ -930,7 +877,7 @@ $hdLoginMaxWidth: 600px; */
   input.form-control.border-line:-webkit-autofill:hover, 
   input.form-control.border-line:-webkit-autofill:focus  {
     -webkit-text-fill-color: #fff;
-    -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+    box-shadow: 0 0 0px 1000px transparent inset;
     transition: background-color 5000s ease-in-out;
   }
   input.form-control.border-line {

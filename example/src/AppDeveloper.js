@@ -5,7 +5,7 @@ import permissions from './Resources/Permissions.json'
 import preloading from './Resources/preloading.svg'
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 
-export const AppTheme = () => {
+export const AppDeveloper = () => {
   return <BrowserRouter>
     <Switch>
       <Route path={'/'} exact>
@@ -14,7 +14,7 @@ export const AppTheme = () => {
           title="Productos"
           titleTop="Productos"
           companyName="Compañía"
-          brand="https://developerperu.com/public/images/logo/logo.svg"
+          brand="https://developerperu.com/public/images/logo/logo_blanco.svg"
           openNavDesktop
           permissions={permissions}
           iconsRight={[
@@ -45,7 +45,12 @@ export const AppTheme = () => {
           linkTo={({ url }) => '/' + url}
           linkToBrand="/"
         >
-          <div className="card pt-4">
+          <NotFound imageNotFound={'https://developerperu.com/public/images/icons/not-profile-picture.png'}
+            backUrl='/'
+            Link={_ => <div></div>}
+            styleImage={{}}
+          />
+          <div className="card pt-4 mt-4">
             <div className="card-body">
               <p>test1</p>
             </div>
@@ -76,19 +81,19 @@ export const AppTheme = () => {
   </BrowserRouter>
 }
 
-export const AppThemeLoading = () => {
+export const AppDeveloperLoading = () => {
   return <Preloading image={preloading} />
 }
 
-export const AppThemeAuth = () => {
+export const AppDeveloperAuth = () => {
   return <Auth
     brand={'https://developerperu.com/public/images/logo/logo.svg'}
   />
 }
 
-export const AppThemeNotFound = () => {
+export const AppDeveloperNotFound = () => {
   return <NotFound imageNotFound={'https://developerperu.com/public/images/icons/not-profile-picture.png'}
-  backUrl='/'
-  Link={_ => <div></div>}
-  styleImage={{}} />
+    backUrl='/'
+    Link={_ => <div></div>}
+    styleImage={{}} />
 }

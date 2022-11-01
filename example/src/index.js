@@ -2,8 +2,11 @@ import './index.css'
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import AppThuleStore from './AppThuleStore'
-import AppSmartSupply from './AppSmartSupply'
-import AppTheme from './AppTheme'
+/* import { AppThuleStore, AppThuleStoreAuth } from './AppThuleStore'
+import { AppSmartSupply, AppSmartSupplyAuth } from './AppSmartSupply'
+import { AppTheme, AppThemeLoading, AppThemeAuth, AppThemeNotFound } from './AppTheme' */
+import { AppDeveloper } from './AppDeveloper'
+import './index.scss';
+/* import { AppDeveloperAuth } from './AppDeveloper' */
 
-ReactDOM.render(<AppTheme />, document.getElementById('root'))
+ReactDOM.render(<AppDeveloper />, document.getElementById('root'))

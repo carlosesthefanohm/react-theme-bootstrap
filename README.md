@@ -27,7 +27,7 @@ const App = () => {
     page="datatable"
     title="Productos"
     companyName="Compañía"
-    brand="https://developerperu.com/public/images/logo/logo_blanco.svg"
+    brand="https://developerperu.com/public/images/logo/logo.svg"
     openNavDesktop
     permissions={permissions}
     iconsRight={[
