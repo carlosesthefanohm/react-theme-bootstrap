@@ -1,11 +1,34 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Layout, Preloading, NotFound, Auth } from 'react-theme-bootstrap'
 import Dropdown from 'react-bootstrap/Dropdown'
-import permissions from './Resources/Permissions.json'
-import preloading from './Resources/preloading.svg'
+import permissions from '../Resources/Permissions.json'
+import preloading from '../Resources/preloading.svg'
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
+import ReactTableBootstrap from 'react-table-bootstrap'
+import './AppDeveloper.scss';
 
 export const AppDeveloper = () => {
+  const [body, setBody] = useState([])
+  const [isProcessing, setIsProcessing] = useState(true)
+
+  useEffect(() => {
+    let b = []
+    for (let j = 1; j < 100; j++) {
+      b.push({
+        id: j,
+        name: 'Carlos' + j,
+        balance: 10 * (j + 1),
+        enabled: j % 2 === 0 ? 1 : 0,
+        checked: 0,
+        uno: 1,
+        dos: 2,
+        enabled_text: j % 2 === 0 ? 'ACTIVO' : 'INACTIVO'
+      })
+    }
+    setBody(b)
+    setIsProcessing(false)
+  }, [])
+
   return <BrowserRouter>
     <Switch>
       <Route path={'/'} exact>
@@ -50,29 +73,40 @@ export const AppDeveloper = () => {
             Link={_ => <div></div>}
             styleImage={{}}
           />
-          <div className="card pt-4 mt-4">
+          <div className="card mt-4">
             <div className="card-body">
-              <p>test1</p>
+              <ReactTableBootstrap
+                head={[
+
+                  [
+                    { name: 'id', text: 'ID', align: 'center' },
+                    { name: 'name', text: 'Nombres' },
+                    { name: 'balance', text: 'Salario', align: 'center' },
+                    {
+                      name: 'enabled', text: 'Estado', align: 'center', render: r => <strong className={'text-' + (parseInt(r.enabled) === 1 ? 'success' : 'danger')}>
+                        {parseInt(r.enabled) === 1 ? 'ACTIVO' : 'INACTIVO'}
+                      </strong>
+                    },
+                    {
+                      name: 'actions', text: 'Acciones', align: 'center',
+                      render: () => {
+                        return <>
+                          <button className='btn btn-primary btn-sm'>
+                            Edit
+                          </button>
+                        </>
+                      }
+                    }
+                  ],
+                ]}
+                isProcessing={isProcessing}
+                rows={body}
+              />
             </div>
           </div>
           <div className="card mt-4">
             <div className="card-body">
-              <p>test1</p>
-            </div>
-          </div>
-          <div className="card mt-4">
-            <div className="card-body">
-              <p>test1</p>
-            </div>
-          </div>
-          <div className="card mt-4">
-            <div className="card-body">
-              <p>test1</p>
-            </div>
-          </div>
-          <div className="card mt-4">
-            <div className="card-body">
-              <p>test1</p>
+              <div>test1</div>
             </div>
           </div>
         </Layout>

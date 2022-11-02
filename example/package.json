@@ -15,8 +15,11 @@
     "react": "file:../node_modules/react",
     "react-bootstrap": "^1.5.2",
     "react-dom": "file:../node_modules/react-dom",
+    "react-paginate": "^8.1.3",
+    "react-placeholder": "^4.1.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "file:../node_modules/react-scripts",
+    "react-table-bootstrap": "^1.0.7",
     "react-theme-bootstrap": "file:.."
   },
   "devDependencies": {

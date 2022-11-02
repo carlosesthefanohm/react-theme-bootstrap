@@ -1,0 +1,53 @@
+// Smart Supply
+$primary: #FD6437;
+$success: #138E72;
+$danger: #FF304F;
+$info: #01B0FF;
+$warning: #ffc107;
+$dark: #2F3C48;
+$secondary: #138E72;
+$hdModalBg: $dark;
+
+$hdGradient: #D94A23;
+$hdTopBarMovilBg: $hdGradient;
+$hdNavTitle: #9FA2AA;
+$hdPageWrapperBreadColor: #626262;
+
+// Smart Supply
+$hdNavBg: #D94A23;
+$hdNavSecondLevelBg: $hdNavBg;
+$hdNavSecondlLevelColor: #F2F2F2;
+$hdNavSecondlLevelColorActive: #000;
+$hdNavSecondLevelBgActive: #F2F2F2;
+$hdLogoBg: $hdNavBg;
+$hdNavLeftPadding: 0px;
+$hdNavOneLevelPadding: 0px;
+$hdNavSecondLevelHeight: 45px;
+$hdNavSecondLevelRadiusTopLeft: 45px;
+$hdNavSecondLevelRadiusBottomLeft: 45px;
+$hdPageWrapperColor: #000;
+$hdPageWrapperBg: #F2F2F2;
+$hdSidebarBg: #F2F2F2;
+$hdBoxShadow: 0px 12px 23px rgba(0, 0, 0, 0.1);
+$hdCardBorderRadius: 20px;
+$hdSidebarBgMovil: $hdNavBg;
+$hdWidthFull: 260px;
+$hdLogoBgMovil: $hdNavBg;
+$hdColumns: $hdWidthFull 1fr 1fr 1fr;
+$hdIconCenterDisplay: flex;
+$hdHeaderLogoBorder: $hdNavBg;
+$hdBoxShadowNav: none;
+$hdIconBarOpen: #343a40;
+$hdIconBarClose: #343a40;
+$hdIconBarBg: #F2F2F2;
+$hdNavSecondLevelPadding: 0 0 0 20px;
+$hdNavSecondLevelItemPadding: 0 0 0 20px;
+$hdLoginMaxWidth: 600px;
+$hdSidebarBgLeftIcon: none;
+$hdSidebarBgRightIcon: none;
+$hdLogoWidth: 160px;
+$hdIconBarDisplay: none;
+
+@import "bootstrap";
+@import 'react-theme-bootstrap/dist/index.scss';
+@import 'react-table-bootstrap/dist/index.scss';

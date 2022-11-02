@@ -1,0 +1,27 @@
+// Thule Store
+$hdGradient: #f26122;
+$hdSidebarBg: $hdGradient;
+$hdNavBg: #111111;
+$hdNavSecondLevelBg: #111111;
+$hdNavSecondlLevelColor: #fff;
+$hdWidthFull: 220px;
+$hdColumns: $hdWidthFull 1fr 1fr;
+$hdLogoBg: #111111;
+$hdHeaderLogoBorder: #111111;
+$hdBodyBgLight: #e5e5e5;
+$hdPageWrapperBg: #e5e5e5;
+$hdPageWrapperColor: #333333;
+$hdPageWrapperBodyPosition: static;
+$hdPageWrapperHeight: auto;
+$hdNavOneLevelBg: #111111;
+$hdNavOneLevelBgActive: #e5e5e5;
+$hdLoginBg: #4c4c4c;
+$hdLoginMaxWidth: 400px;
+$hdLoginContentPadding: 50px 30px;
+$hdLoginContentBorderRadius: 30px;
+$hdSidebarBgMovil: $hdGradient;
+$hdLogoBgMovil: $hdGradient;
+$hdNavSecondLevelBgActive: $hdGradient;
+
+@import "bootstrap";
+@import 'react-theme-bootstrap/dist/index.scss';

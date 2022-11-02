@@ -1,9 +1,10 @@
 import React from 'react'
 import { Layout, Preloading, AuthV3 } from 'react-theme-bootstrap'
 import Dropdown from 'react-bootstrap/Dropdown'
-import permissions from './Resources/Permissions.json'
-import preloading from './Resources/preloading.svg'
+import permissions from '../Resources/Permissions.json'
+import preloading from '../Resources/preloading.svg'
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
+import './AppSmartSupply.scss'
 
 export const AppSmartSupply = () => {
   return <BrowserRouter>
@@ -16,7 +17,7 @@ export const AppSmartSupply = () => {
           title="Productos"
           titleTop="Productos"
           companyName="Compañía"
-          brand="https://developerperu.com/public/images/logo/logo.svg"
+          brand="https://developerperu.com/public/images/logo/logo_blanco.svg"
           openNavDesktop
           permissions={permissions}
           iconsRight={[
@@ -196,21 +197,6 @@ export const AppSmartSupply = () => {
               <p>test1</p>
             </div>
           </div>
-          <div className="card mt-4">
-            <div className="card-body">
-              <p>test1</p>
-            </div>
-          </div>
-          <div className="card mt-4">
-            <div className="card-body">
-              <p>test1</p>
-            </div>
-          </div>
-          <div className="card mt-4">
-            <div className="card-body">
-              <p>test1</p>
-            </div>
-          </div>
         </Layout>
       </Route>
     </Switch >
@@ -223,6 +209,6 @@ export const AppSmartSupplyLoading = () => {
 
 export const AppSmartSupplyAuth = () => {
   return <AuthV3
-    brand={'https://developerperu.com/public/images/logo/logo.svg'}
+    brand={'https://developerperu.com/public/images/logo/logo_blanco.svg'}
   />
 }

@@ -1,0 +1,29 @@
+// App Developer
+$primary: rgb(20, 21, 101);
+$danger: #ff3636;
+$warning: #ffbb33;
+$success: rgb(91, 175, 27);
+$info: #2ca8ff;
+$dark: #1B1B1C;
+
+$hdGradient: linear-gradient(118deg, rgb(20, 21, 101), rgb(116, 117, 249));
+$hdSidebarBg: $hdGradient;
+$hdWidthFull: 270px;
+$hdColumns: $hdWidthFull 1fr 1fr;
+$hdHeaderLogoBorder: none;
+$hdLoginBg: url('https://www.greenfield-it.co.uk/wp-content/uploads/2019/01/What-do-I-need-to-know-for-a-Software-Developer-interview.jpg');
+$hdLoginMaxWidth: 500px;
+$hdLoginLogoMinWidth: 200px;
+$hdLoginContentPadding: 50px 30px;
+$hdLoginContentBorderRadius: 30px;
+$hdSidebarBgMovil: none;
+$hdLogoBgMovil: none;
+$hdSidebarBgRightIcon: none;
+$hdSidebarBgLeftIcon: none;
+$hdLogoBg: none;
+$headDashBg: $hdGradient;
+$bgLight: #eaf0f7;
+
+@import "bootstrap";
+@import 'react-theme-bootstrap/dist/index.scss';
+@import 'react-table-bootstrap/dist/index.scss';

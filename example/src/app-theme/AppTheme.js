@@ -1,9 +1,10 @@
 import React from 'react'
 import { Layout, Preloading, NotFound, Auth } from 'react-theme-bootstrap'
 import Dropdown from 'react-bootstrap/Dropdown'
-import permissions from './Resources/Permissions.json'
-import preloading from './Resources/preloading.svg'
+import permissions from '../Resources/Permissions.json'
+import preloading from '../Resources/preloading.svg'
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
+import './AppTheme.scss'
 
 export const AppTheme = () => {
   return <BrowserRouter>
@@ -14,7 +15,7 @@ export const AppTheme = () => {
           title="Productos"
           titleTop="Productos"
           companyName="Compañía"
-          brand="https://developerperu.com/public/images/logo/logo.svg"
+          brand="https://developerperu.com/public/images/logo/logo_blanco.svg"
           openNavDesktop
           permissions={permissions}
           iconsRight={[
@@ -45,29 +46,14 @@ export const AppTheme = () => {
           linkTo={({ url }) => '/' + url}
           linkToBrand="/"
         >
-          <div className="card pt-4">
+          <div className="card">
             <div className="card-body">
-              <p>test1</p>
+              <div>test1</div>
             </div>
           </div>
           <div className="card mt-4">
             <div className="card-body">
-              <p>test1</p>
-            </div>
-          </div>
-          <div className="card mt-4">
-            <div className="card-body">
-              <p>test1</p>
-            </div>
-          </div>
-          <div className="card mt-4">
-            <div className="card-body">
-              <p>test1</p>
-            </div>
-          </div>
-          <div className="card mt-4">
-            <div className="card-body">
-              <p>test1</p>
+              <div>test2</div>
             </div>
           </div>
         </Layout>
@@ -88,7 +74,7 @@ export const AppThemeAuth = () => {
 
 export const AppThemeNotFound = () => {
   return <NotFound imageNotFound={'https://developerperu.com/public/images/icons/not-profile-picture.png'}
-  backUrl='/'
-  Link={_ => <div></div>}
-  styleImage={{}} />
+    backUrl='/'
+    Link={_ => <div></div>}
+    styleImage={{}} />
 }

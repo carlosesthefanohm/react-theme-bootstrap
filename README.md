@@ -13,69 +13,171 @@ npm install --save react-theme-bootstrap
 ## Usage
 
 ```jsx
-import React from 'react'
-import { Layout, Preloading, Auth } from 'react-theme-bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'react-theme-bootstrap/dist/index.css'
+import React, { useEffect, useState } from 'react'
+import { Layout, Preloading, NotFound, Auth } from 'react-theme-bootstrap'
 import Dropdown from 'react-bootstrap/Dropdown'
-import permissions from './Resources/Permissions.json'
-import preloading from './Resources/preloading.svg'
-import logo from './Resources/logo.png'
+import permissions from '../Resources/Permissions.json'
+import preloading from '../Resources/preloading.svg'
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
+import ReactTableBootstrap from 'react-table-bootstrap'
+import './AppDeveloper.scss';
 
-const App = () => {
-  return <Layout
-    page="datatable"
-    title="Productos"
-    companyName="Compañía"
-    brand="https://developerperu.com/public/images/logo/logo.svg"
-    openNavDesktop
-    permissions={permissions}
-    iconsRight={[
-      {
-        type: 'html', content: <span>developer</span>,
-        style: {
-          minWidth: 100,
-          fontSize: 15
-        },
-        noHover: true
-      },
-      {
-        type: 'image',
-        content: 'https://developerperu.com/public/images/icons/not-profile-picture.png',
-        dropdown: ({ custom }) => <Dropdown>
-          <Dropdown.Toggle as={custom} />
-          <Dropdown.Menu>
-            <Dropdown.Item className="d-flex">
-              <i className="fa fa-arrow-left mr-2 align-self-center"></i>
-              <span>Salir</span>
-            </Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-      }
-    ]}
-  >
-    <div className="card">
-      <div className="card-header">
-        Listado de productos
-      </div>
-      <div className="card-body">
-        Prueba
-      </div>
-    </div>
-  </Layout>
+export const AppDeveloper = () => {
+  const [body, setBody] = useState([])
+  const [isProcessing, setIsProcessing] = useState(true)
+
+  useEffect(() => {
+    let b = []
+    for (let j = 1; j < 100; j++) {
+      b.push({
+        id: j,
+        name: 'Carlos' + j,
+        balance: 10 * (j + 1),
+        enabled: j % 2 === 0 ? 1 : 0,
+        checked: 0,
+        uno: 1,
+        dos: 2,
+        enabled_text: j % 2 === 0 ? 'ACTIVO' : 'INACTIVO'
+      })
+    }
+    setBody(b)
+    setIsProcessing(false)
+  }, [])
+
+  return <BrowserRouter>
+    <Switch>
+      <Route path={'/'} exact>
+        <Layout
+          page="datatable"
+          title="Productos"
+          titleTop="Productos"
+          companyName="Compañía"
+          brand="https://developerperu.com/public/images/logo/logo_blanco.svg"
+          openNavDesktop
+          permissions={permissions}
+          iconsRight={[
+            {
+              type: 'html', content: <span>developer</span>,
+              style: {
+                minWidth: 100,
+                fontSize: 15
+              },
+              noHover: true,
+              hideOnMobile: true
+            },
+            {
+              type: 'image',
+              content: 'https://developerperu.com/public/images/icons/not-profile-picture.png',
+              dropdown: ({ custom }) => <Dropdown>
+                <Dropdown.Toggle as={custom} />
+                <Dropdown.Menu>
+                  <Dropdown.Item className="d-flex">
+                    <i className="fa fa-arrow-left mr-2 align-self-center"></i>
+                    <span>Salir</span>
+                  </Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+            }
+          ]}
+          Link={Link}
+          linkTo={({ url }) => '/' + url}
+          linkToBrand="/"
+        >
+          <NotFound imageNotFound={'https://developerperu.com/public/images/icons/not-profile-picture.png'}
+            backUrl='/'
+            Link={_ => <div></div>}
+            styleImage={{}}
+          />
+          <div className="card mt-4">
+            <div className="card-body">
+              <ReactTableBootstrap
+                head={[
+
+                  [
+                    { name: 'id', text: 'ID', align: 'center' },
+                    { name: 'name', text: 'Nombres' },
+                    { name: 'balance', text: 'Salario', align: 'center' },
+                    {
+                      name: 'enabled', text: 'Estado', align: 'center', render: r => <strong className={'text-' + (parseInt(r.enabled) === 1 ? 'success' : 'danger')}>
+                        {parseInt(r.enabled) === 1 ? 'ACTIVO' : 'INACTIVO'}
+                      </strong>
+                    },
+                    {
+                      name: 'actions', text: 'Acciones', align: 'center',
+                      render: () => {
+                        return <>
+                          <button className='btn btn-primary btn-sm'>
+                            Edit
+                          </button>
+                        </>
+                      }
+                    }
+                  ],
+                ]}
+                isProcessing={isProcessing}
+                rows={body}
+              />
+            </div>
+          </div>
+          <div className="card mt-4">
+            <div className="card-body">
+              <div>test1</div>
+            </div>
+          </div>
+        </Layout>
+      </Route>
+    </Switch>
+  </BrowserRouter>
 }
 
-const App = () => {
+export const AppDeveloperLoading = () => {
   return <Preloading image={preloading} />
 }
 
-const App = () => {
+export const AppDeveloperAuth = () => {
   return <Auth
-    brand={logo}
+    brand={'https://developerperu.com/public/images/logo/logo.svg'}
   />
 }
 
-export default App
+export const AppDeveloperNotFound = () => {
+  return <NotFound imageNotFound={'https://developerperu.com/public/images/icons/not-profile-picture.png'}
+    backUrl='/'
+    Link={_ => <div></div>}
+    styleImage={{}} />
+}
+```
+
+```scss
+  // App Developer
+  $primary: rgb(20, 21, 101);
+  $danger: #ff3636;
+  $warning: #ffbb33;
+  $success: rgb(91, 175, 27);
+  $info: #2ca8ff;
+  $dark: #1B1B1C;
+
+  $hdGradient: linear-gradient(118deg, rgb(20, 21, 101), rgb(116, 117, 249));
+  $hdSidebarBg: $hdGradient;
+  $hdWidthFull: 270px;
+  $hdColumns: $hdWidthFull 1fr 1fr;
+  $hdHeaderLogoBorder: none;
+  $hdLoginBg: url('https://www.greenfield-it.co.uk/wp-content/uploads/2019/01/What-do-I-need-to-know-for-a-Software-Developer-interview.jpg');
+  $hdLoginMaxWidth: 500px;
+  $hdLoginLogoMinWidth: 200px;
+  $hdLoginContentPadding: 50px 30px;
+  $hdLoginContentBorderRadius: 30px;
+  $hdSidebarBgMovil: none;
+  $hdLogoBgMovil: none;
+  $hdSidebarBgRightIcon: none;
+  $hdSidebarBgLeftIcon: none;
+  $hdLogoBg: none;
+  $headDashBg: $hdGradient;
+  $bgLight: #eaf0f7;
+
+  @import "bootstrap";
+  @import 'react-theme-bootstrap/dist/index.scss';
+  @import 'react-table-bootstrap/dist/index.scss';
 ```
 
 ## License

@@ -1,0 +1,12 @@
+$hdGradient: linear-gradient(118deg, #376a87, #6f99c3);
+$hdSidebarBgMovil: none;
+$hdLogoBgMovil: none;
+$hdSidebarBgRightIcon: none;
+$hdSidebarBgLeftIcon: none;
+$hdLogoBg: none;
+$hdHeaderLogoBorder: none;
+$headDashBg: $hdGradient;
+
+@import "bootstrap";
+@import 'react-theme-bootstrap/dist/index.scss';
+@import 'react-table-bootstrap/dist/index.scss';
