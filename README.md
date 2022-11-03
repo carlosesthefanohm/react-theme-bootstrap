@@ -180,6 +180,10 @@ export const AppDeveloperNotFound = () => {
   @import 'react-table-bootstrap/dist/index.scss';
 ```
 
+## Versions
+Node - 12.22.12
+
+
 ## License
 
 MIT © [carlosesthefanohm](https://github.com/carlosesthefanohm)

@@ -19,7 +19,7 @@
     "react-placeholder": "^4.1.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "file:../node_modules/react-scripts",
-    "react-table-bootstrap": "^1.0.7",
+    "react-table-bootstrap": "^1.0.9",
     "react-theme-bootstrap": "file:.."
   },
   "devDependencies": {

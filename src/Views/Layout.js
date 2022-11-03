@@ -211,7 +211,7 @@ const Layout = ({ page, children, title, titleTop, showBread, permissions, compa
             }}
         />
 
-        <div className={'page-wrapper' + resizeNav()} onTouchStart={e => {
+        <div className={'page-wrapper ' + (hideTop ? 'page-wrapper-hide-open' : '')  + resizeNav()} onTouchStart={e => {
             setTouchStartX(e.changedTouches[0].screenX)
         }}
             onTouchEnd={e => {

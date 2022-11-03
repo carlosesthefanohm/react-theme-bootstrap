@@ -26,6 +26,7 @@ $hdCardBorderRadius: 10px !default;
 $hdBodyColor: #626262 !default;
 $hdModalBg: #313948 !default;
 $hdIconImagenWidth: 30px !default;
+$hdIconImagenRadius: 10px !default;
 $hdLoginMaxWidth: 500px !default;
 $hdLoginLogoMinWidth: 0px !default;
 $hdLoginBg: #F2F2F2 !default;
@@ -227,6 +228,7 @@ $hdIconBarDisplay: flex !default;
 
       .hd-icon-image {
         width: $hdIconImagenWidth;
+        border-radius: $hdIconImagenRadius;
       }
     }
   }
@@ -608,6 +610,10 @@ $hdIconBarDisplay: flex !default;
     overflow: auto;
     padding-bottom: 40px;
 
+    &.page-wrapper-hide-open .not-found-container {
+      margin-top: 80px;
+    }
+
     &::-webkit-scrollbar-track {
       background: #fff;
       position: fixed;
@@ -896,13 +902,13 @@ input.form-control.border-line {
 }
 
 .was-validated.v3 input.form-control.border-line>.form-control.is-invalid,
-.was-validated .form-control:invalid {
+.was-validated.v3 .form-control:invalid {
   border: 0;
   border-bottom: 1px solid #fff;
 }
 
 .was-validated.v3 input.form-control.border-line>.form-control.is-invalid:focus,
-.was-validated .form-control:invalid:focus {
+.was-validated.v3 .form-control:invalid:focus {
   border: 0;
   border-bottom: 1px solid #fff;
   box-shadow: none;
@@ -914,13 +920,13 @@ input.form-control.border-line {
 }
 
 .was-validated.v3 input.form-control.border-line>.form-control.is-valid,
-.was-validated .form-control:valid {
+.was-validated.v3 .form-control:valid {
   border: 0;
   border-bottom: 1px solid #fff;
 }
 
 .was-validated.v3 input.form-control.border-line>.form-control.is-valid:focus,
-.was-validated .form-control:valid:focus {
+.was-validated.v3 .form-control:valid:focus {
   border: 0;
   border-bottom: 1px solid #fff;
   box-shadow: none;
