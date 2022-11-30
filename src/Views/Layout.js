@@ -46,7 +46,7 @@ const Layout = ({ page, children, title, titleTop, showBread, permissions, compa
             if (showLevelOne) {
                 nav.push(<div className="nav-title">
                     {/* <i className="fas fa-ellipsis-h"></i> */}
-                    <span>{d.parent.description}</span>
+                    <span>{d.parent.name_tag}</span>
                 </div>)
             }
 
@@ -57,7 +57,7 @@ const Layout = ({ page, children, title, titleTop, showBread, permissions, compa
                 p.childrens.forEach(ch => {
                     if (!itemActive) {
                         if (idxActive === -1) {
-                            if (ch.a_href === page) {
+                            if (ch.href_tag === page) {
                                 setIdxActive(i)
                             }
                         } else {
@@ -66,23 +66,21 @@ const Layout = ({ page, children, title, titleTop, showBread, permissions, compa
                             }
                         }
                     }
-                    if (parseInt(ch.show) === 1) {
-                        childs.push(<Link to={linkTo({ url: ch.a_href })} className="nav-second-level-link">
-                            <li className={'nav-second-level-item ' + (ch.a_href === page ? (borderLayoutLeft ? ' position-relative' : '') + ' active' : '')}>
-                                {ch.a_href === page && borderLayoutLeft ? <>
-                                    <div className="border-layout-item-bottom-one"></div>
-                                    <div className="border-layout-item-bottom-two"></div>
-                                    <div className="border-layout-item-top-one"></div>
-                                    <div className="border-layout-item-top-two"></div>
-                                </> : ''}
+                    childs.push(<Link to={linkTo({ url: ch.href_tag })} className="nav-second-level-link">
+                        <li className={'nav-second-level-item ' + (ch.href_tag === page ? (borderLayoutLeft ? ' position-relative' : '') + ' active' : '')}>
+                            {ch.href_tag === page && borderLayoutLeft ? <>
+                                <div className="border-layout-item-bottom-one"></div>
+                                <div className="border-layout-item-bottom-two"></div>
+                                <div className="border-layout-item-top-one"></div>
+                                <div className="border-layout-item-top-two"></div>
+                            </> : ''}
 
-                                <div className="nav-second-level-title">
-                                    {ch?.icon ? <span className={"nav-second-level-with-icon mr-3 " + ch.icon}></span> : <span className="nav-second-level-icon"></span>}
-                                    <div className="nav-second-level-description">{ch.description}</div>
-                                </div>
-                            </li>
-                        </Link>)
-                    }
+                            <div className="nav-second-level-title">
+                                {ch?.icon_tag ? <span className={"nav-second-level-with-icon mr-3 " + ch.icon_tag}></span> : <span className="nav-second-level-icon"></span>}
+                                <div className="nav-second-level-description">{ch.name_tag}</div>
+                            </div>
+                        </li>
+                    </Link>)
                 })
 
                 nav.push(<ul className="nav-one-level">
@@ -90,9 +88,9 @@ const Layout = ({ page, children, title, titleTop, showBread, permissions, compa
                         {showLevelTwo ? <div className={'nav-one-level-content-title' + (itemActive ? ' active' : '')} data-idx={i} onClick={e => setIdxActive(idxActive === parseInt(e.currentTarget.dataset.idx) ? -2 : parseInt(e.currentTarget.dataset.idx))}>
                             <div className="nav-one-level-title">
                                 <span className="nav-one-level-icon">
-                                    <i className={p.parent.icon}></i>
+                                    <i className={p.parent.icon_tag}></i>
                                 </span>
-                                <span className="nav-one-level-description">{p.parent.description}</span>
+                                <span className="nav-one-level-description">{p.parent.name_tag}</span>
                             </div>
                             <span className={'nav-one-level-arrow' + (itemActive ? ' active' : '')}></span>
                         </div> : ''}
@@ -114,11 +112,11 @@ const Layout = ({ page, children, title, titleTop, showBread, permissions, compa
         permissions.forEach(d => {
             d.childrens.forEach(p => {
                 p.childrens.forEach(ch => {
-                    if (ch.a_href === page) {
+                    if (ch.href_tag === page) {
                         bread = {
-                            parent: d.parent.description,
-                            child: p.parent.description,
-                            current: ch.description
+                            parent: d.parent.name_tag,
+                            child: p.parent.name_tag,
+                            current: ch.name_tag
                         }
                     }
                 })
@@ -166,15 +164,15 @@ const Layout = ({ page, children, title, titleTop, showBread, permissions, compa
 
     return (<div className="head-dash">
         <div className="d-flex hd-content-logo hd-height position-relative">
-            <div className={'d-flex justify-content-center align-self-center w-100 hd-height ' + (borderLayoutTop ?  'border-layout position-relative' : '')}>
+            <div className={'d-flex justify-content-center align-self-center w-100 hd-height ' + (borderLayoutTop ? 'border-layout position-relative' : '')}>
                 <div className="align-self-center">
                     <Link to={linkToBrand}>
                         <img src={brand} className="hd-content-logo-image" />
                     </Link>
                 </div>
                 {borderLayoutTop ? <>
-                <div className="border-layout-top-one"></div>
-                <div className="border-layout-top-two"></div>
+                    <div className="border-layout-top-one"></div>
+                    <div className="border-layout-top-two"></div>
                 </> : ''}
             </div>
         </div>
@@ -186,7 +184,7 @@ const Layout = ({ page, children, title, titleTop, showBread, permissions, compa
                     setMobile(!mobile)
                 }
             }}>
-                {<i className="fa fa-bars hd-icon-bar-close"></i> }
+                {<i className="fa fa-bars hd-icon-bar-close"></i>}
             </div> : ''}
             {React.Children.toArray(renderIcon(iconsLeft))}
         </div>
@@ -211,7 +209,7 @@ const Layout = ({ page, children, title, titleTop, showBread, permissions, compa
             }}
         />
 
-        <div className={'page-wrapper ' + (hideTop ? 'page-wrapper-hide-open' : '')  + resizeNav()} onTouchStart={e => {
+        <div className={'page-wrapper ' + (hideTop ? 'page-wrapper-hide-open' : '') + resizeNav()} onTouchStart={e => {
             setTouchStartX(e.changedTouches[0].screenX)
         }}
             onTouchEnd={e => {
