@@ -312,7 +312,7 @@
         left: -260px; }
         ._qrOZf ._1yxHU._GKK8n {
           left: 0;
-          overflow: auto; }
+          overflow-y: auto; }
         ._qrOZf ._1yxHU ._mcblb {
           width: calc(260px - (10px * 2)) !important;
           justify-content: flex-start !important; }

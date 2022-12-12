@@ -532,7 +532,7 @@ $hdIconBarDisplay: flex !default;
 
       &.nav-open-mobile {
         left: 0;
-        overflow: auto;
+        overflow-y: auto;
       }
 
       .nav-title {
