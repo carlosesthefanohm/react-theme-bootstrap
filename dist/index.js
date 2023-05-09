@@ -136,7 +136,7 @@ var Layout = function Layout(_ref4) {
 
           childs.push( /*#__PURE__*/React__default.createElement(Link, {
             to: linkTo({
-              url: ch.href_tag
+              url: '/' + ch.href_tag
             }),
             className: "nav-second-level-link"
           }, /*#__PURE__*/React__default.createElement("li", {

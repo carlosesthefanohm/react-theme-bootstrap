@@ -66,7 +66,7 @@ const Layout = ({ page, children, title, titleTop, showBread, permissions, compa
                             }
                         }
                     }
-                    childs.push(<Link to={linkTo({ url: ch.href_tag })} className="nav-second-level-link">
+                    childs.push(<Link to={linkTo({ url: '/' + ch.href_tag })} className="nav-second-level-link">
                         <li className={'nav-second-level-item ' + (ch.href_tag === page ? (borderLayoutLeft ? ' position-relative' : '') + ' active' : '')}>
                             {ch.href_tag === page && borderLayoutLeft ? <>
                                 <div className="border-layout-item-bottom-one"></div>
